@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>//Apic Em.index</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/styles.css" >
+        <script> 
+            function validateform(){  
+            var myInput = document.getElementById("psw");
+            var name=document.myform.usrname.value;  
+            var password=document.myform.psw.value;  
+            myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+            }
+            if (name=="devnetuser" && password=="Cisco123!"){    
+            return true;  
+            }else if(name!="devnetuser" && password=="Cisco123!")
+            {
+            alert("enter valid username");  
+            return false;  
+            }  
+            else if(name=="devnetuser" && password!="Cisco123!")
+            {
+            alert("enter valid password");  
+            return false;
+            } 
+            else(name!="devnetuser" && password!="Cisco123!")
+            {
+            alert("enter valid username and password");  
+            return false;}
+            }
+           
+        </script>
+           </head>
+    <body>
+        <div class="container">
+        <div class="image">
+      <img src="images/notebook.jpg" alt="Notebook" style="width:100%">
+    <div class="container" align="center">        
+    <form name="myform" action="mainjsp.jsp" method="POST" onsubmit="return validateform()" >
+    <label for="usrname">Username</label>
+    <input type="text" id="usrname" name="usrname" required><br>
+    <label for="psw">Password</label>
+    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+    <br>
+    
+    <div id="lower">
+                  <input type="submit" value="Submit" >
+    </div>
+    </form>
+    </div>
+        </div>
+        </div>
+  </body>
+</html>
